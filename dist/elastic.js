@@ -1,6 +1,6 @@
-/*! elastic.js - v1.3.8 - 2015-11-02
+/*! elastic.js - v1.3.8 - 2016-07-04
  * https://github.com/fullscale/elastic.js
- * Copyright (c) 2015 FullScale Labs, LLC; Licensed MIT */
+ * Copyright (c) 2016 FullScale Labs, LLC; Licensed MIT */
 
 /**
  @namespace
@@ -17521,7 +17521,24 @@
         return this;
       },
 
+
       /**
+	Sets the filename of the stored script that will be used toi perform this calculation.
+
+        @member ejs.ScriptField
+        @param {String} filename path to the file containing the code
+        @returns {Object} returns <code>this</code> so that calls can be chained.
+      */
+      file: function (filename) {
+        if (filename == null) {
+          return script[fieldName].file;
+        }
+
+        script[fieldName].file = filename;
+        return this;
+      },
+
+        /**
             Allows you to set script parameters to be used during the execution of the script.
 
             @member ejs.ScriptField
